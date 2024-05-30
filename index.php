@@ -1,15 +1,8 @@
 <?php
-try {
-    $pdo = new PDO('mysql:host=localhost;dbname=ninja', 'root', '');
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $statement = $pdo->query("SELECT * FROM `students`");
-    $students = $statement->fetchAll(PDO::FETCH_OBJ);
-    // var_dump($students);
-} catch (PDOException $e) {
-    die(var_dump($e->getMessage()));
-} catch (Exception $e) {
-    die(var_dump($e->getMessage()));
-}
+require_once('./database/db.php');
+$db = new DB();
+$students = $db->index();
+
 
 ?>
 

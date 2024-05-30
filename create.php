@@ -16,11 +16,11 @@
                     <h3 class="text-center">Create New Student</h3>
                     <div class="mb-2">
                         <label for="name" class="form-label">name</label>
-                        <input type="text" name="name" class="form-control" id="name">
+                        <input type="text" name="name" class="form-control" id="name" required>
                     </div>
                     <div class="mb-2">
                         <label for="email" class="form-label">Email address</label>
-                        <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
+                        <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" required>
                     </div>
                     <div class="mb-2">
                         <label for="gender" class="form-label">Choose Your Gender</label>
@@ -31,11 +31,11 @@
                         </select>
                     </div>
                     <div class="mb-2">
-                        <label for="date_of_birth" class="form-label">Choose Your Birthday</label>
+                        <label for="date_of_birth" class="form-label" required>Choose Your Birthday</label>
                         <input type="date" name="date_of_birth" class="form-control" id="date_of_birth">
                     </div>
                     <div class="mb-2">
-                        <label for="age" class="form-label">Choose Your Birthday</label>
+                        <label for="age" class="form-label" required>Choose Your Birthday</label>
                         <input type="number" name="age" class="form-control" id="age">
                     </div>
                     <div class="mt-3">

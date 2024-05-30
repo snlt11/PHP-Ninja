@@ -1,16 +1,8 @@
 <?php
-try {
-    $pdo = new PDO('mysql:host=localhost;dbname=ninja', 'root', '');
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $statement = $pdo->prepare("SELECT * FROM `students` WHERE `id` = :id ");
-    $statement->bindParam(':id', $_GET['id']);
-    $statement->execute();
-    $student = $statement->fetch(PDO::FETCH_OBJ);
-} catch (PDOException $e) {
-    die(var_dump($e->getMessage()));
-} catch (Exception $e) {
-    die(var_dump($e->getMessage()));
-}
+require_once('./database/db.php');
+$db = new DB();
+$student = $db->show($_GET['id']);
+
 
 ?>
 
