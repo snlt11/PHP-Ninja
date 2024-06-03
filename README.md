@@ -16,7 +16,7 @@ This is a simple PHP application built using the Laravel framework that demonstr
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/php-ninja.git
+   git clone https://github.com/snlt11/php-ninja.git
    ```
 
 2. Navigate to the project directory:
