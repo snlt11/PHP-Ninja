@@ -1,7 +1,13 @@
 <?php
-require_once('./database/db.php');
+
+require_once('./vendor/autoload.php');
+
+use App\DB;
+
 $db = new DB();
 $students = $db->index();
+
+dd($students);
 
 
 ?>
