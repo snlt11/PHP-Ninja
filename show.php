@@ -1,8 +1,14 @@
 <?php
-require_once('./database/db.php');
-$db = new DB();
-$student = $db->show($_GET['id']);
 
+use App\Database;
+
+require_once('./vendor/autoload.php');
+
+$db = new Database;
+
+$students = $db->index();
+
+$student = $db->show($_GET['id']);
 
 ?>
 <!doctype html>

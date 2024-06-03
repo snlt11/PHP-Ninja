@@ -14,5 +14,8 @@
             "email": "sainaylinthar@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "illuminate/database": "^11.9",
+        "illuminate/events": "^11.9"
+    }
 }

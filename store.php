@@ -1,5 +1,12 @@
 <?php
-require_once('./database/db.php');
-$db = new DB();
-$students = $db->store($_POST);
 
+
+use App\Database;
+
+require_once('./vendor/autoload.php');
+
+$db = new Database;
+
+$test = $db->store($_POST);
+
+?>

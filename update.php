@@ -1,7 +1,11 @@
 <?php
 
-require_once('./database/db.php');
-$db = new DB();
+require_once('./vendor/autoload.php');
+
+use App\Database;
+
+$db = new Database();
+
 $student = $db->update($_POST);
 
 ?>
