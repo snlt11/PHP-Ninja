@@ -51,7 +51,7 @@ $student = $db->show($_GET['id']);
                         <input type="number" name="age" value="<?php echo $student->age ?>" class="form-control" id="age">
                     </div>
                     <div class="mt-3">
-                        <button type="submit" name="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
                         <a href="./index.php" class="btn btn-warning">Cancel</a>
                     </div>
                 </form>

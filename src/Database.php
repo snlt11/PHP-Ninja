@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Student;
 
 use Illuminate\Database\Capsule\Manager as DB;
 use Illuminate\Events\Dispatcher;
@@ -9,12 +10,11 @@ use Illuminate\Container\Container;
 
 class Database
 {
-    protected $db;
     public function __construct()
     {
-        $this->db = new DB;
+        $db = new DB;
 
-        $this->db->addConnection([
+        $db->addConnection([
             'driver' => 'mysql',
             'host' => 'localhost',
             'database' => 'ninja',
@@ -26,58 +26,39 @@ class Database
         ]);
 
 
-        $this->db->setEventDispatcher(new Dispatcher(new Container));
+        $db->setEventDispatcher(new Dispatcher(new Container));
 
-        $this->db->setAsGlobal();
+        $db->setAsGlobal();
 
-        $this->db->bootEloquent();
+        $db->bootEloquent();
     }
     public function index()
     {
-        return $this->db->table('students')->get();
+        return Student::all();
     }
 
     public function destroy($id)
     {
-        $result = $this->db->table('students')->where('id', $id)->delete();
-        if ($result) {
-            header("Location: index.php");
-        }
+        $result = Student::destroy($id);
+
+        if ($result) header("Location: index.php");
     }
 
     public function store($data)
     {
-        $student = $this->db->table('students')->insert([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'gender' => $data['gender'],
-            'date_of_birth' => $data['date_of_birth'],
-            'age' => $data['age'],
-        ]);
-        if ($student) {
-            header("Location: index.php");
-        } else {
-            echo "Data Not Inserted";
-        }
+        $result = Student::create($data);
+
+        if ($result) header("Location: index.php");
     }
 
     public function show($id)
     {
-        return $this->db->table('students')->where('id', $id)->first();
+        return Student::find($id);
     }
     public function update($data)
     {
-        $result = $this->db->table('students')->where('id', $data['id'])->update([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'gender' => $data['gender'],
-            'date_of_birth' => $data['date_of_birth'],
-            'age' => $data['age'],
-        ]);
-        if ($result) {
-            header("Location: index.php");
-        } else {
-            echo "Data update failed";
-        }
+        $result = Student::where('id', $data['id'])->update($data);
+
+        if ($result) header("Location: index.php");
     }
 }
